@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://opsrewire.com/sitemap.xml
