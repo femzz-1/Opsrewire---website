@@ -94,7 +94,7 @@ body {
 
 /* ── NAV ── */
 nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1100;
   display: flex; align-items: center; justify-content: space-between;
   padding: 0 2.5rem;
   height: 64px;
@@ -485,7 +485,8 @@ footer canvas {
   flex-direction: column; justify-content: center; gap: 5px;
   width: 36px; height: 36px;
   cursor: pointer; background: none; border: none; padding: 4px;
-  z-index: 200;
+  z-index: 1101;
+  position: relative;
 }
 .nav-hamburger span {
   display: block; height: 2px; border-radius: 2px;
@@ -498,7 +499,7 @@ footer canvas {
 /* Mobile drawer */
 .mobile-menu {
   display: none;
-  position: fixed; inset: 0; z-index: 150;
+  position: fixed; inset: 0; z-index: 1000;
   background: rgba(26,26,30,0.98);
   backdrop-filter: blur(24px);
   flex-direction: column; align-items: center; justify-content: center;
