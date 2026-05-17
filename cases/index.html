@@ -2583,14 +2583,138 @@ footer canvas {
   <a href="/contact" class="mobile-cta" onclick="closeMobileMenu()">Book an audit</a>
 </div>
 <main>
-<div class="page-header"><canvas id="casesHeaderCanvas"></canvas><div class="page-header-inner"><div class="breadcrumb"><a href="/">Home</a> / Examples</div><h1>What <em>rewiring</em> looks like.</h1><p>These are typical engagement patterns based on the kinds of companies we work with. Specific details are illustrative, not attributed to named clients.</p></div></div>
+<div class="page-header">
+  <canvas id="casesHeaderCanvas"></canvas>
+  <div class="page-header-inner">
+    <div class="breadcrumb"><a href="/">Home</a> / Examples</div>
+    <h1>Work we have <em>delivered.</em></h1>
+    <p>Real engagements, anonymised clients. Internal tools built around how each company actually works.</p>
+  </div>
+</div>
+
 <div class="pulse-divider"></div>
+
 <section class="cases-list">
-  <div class="case-card reveal"><div class="case-info"><div class="blog-meta"><span class="blog-tag">Example scenario</span><span class="blog-date">SaaS company, 120 employees</span></div><h3>Overlapping tools, enterprise-tier waste, and four cancelled contracts</h3><p>A growing SaaS company with overlapping project management tools, two BI platforms, and an enterprise-tier HR system they were using 15% of. Four contracts cancelled, two downgraded, and a custom dashboard replaced a £30k/year tooling platform.</p></div><div class="case-stats"><div class="case-stat"><div class="case-stat-num">4</div><div class="case-stat-label">Contracts cancelled</div></div><div class="case-stat"><div class="case-stat-num">2</div><div class="case-stat-label">Downgraded</div></div><div class="case-stat"><div class="case-stat-num">6 wks</div><div class="case-stat-label">Total time</div></div></div></div>
-  <div class="case-card reveal reveal-d1"><div class="case-info"><div class="blog-meta"><span class="blog-tag">Example scenario</span><span class="blog-date">Logistics firm, 80 employees</span></div><h3>Nine automated workflows, one ops dashboard, and half a week recovered</h3><p>A logistics firm whose ops team spent half their week moving data between three systems that didn't talk to each other. Nine workflows automated in the first sprint.</p></div><div class="case-stats"><div class="case-stat"><div class="case-stat-num">9</div><div class="case-stat-label">Workflows automated</div></div><div class="case-stat"><div class="case-stat-num">4 wks</div><div class="case-stat-label">First automation live</div></div></div></div>
-  <div class="case-card reveal reveal-d2"><div class="case-info"><div class="blog-meta"><span class="blog-tag">Example scenario</span><span class="blog-date">Professional services, 60 employees</span></div><h3>Spreadsheet chaos to a custom client portal in three weeks</h3><p>A boutique professional services firm that had outgrown Google Sheets, email threads, and a paid project tool nobody liked. All replaced with a single custom portal built in three weeks, owned outright.</p></div><div class="case-stats"><div class="case-stat"><div class="case-stat-num">3 wks</div><div class="case-stat-label">Portal build time</div></div><div class="case-stat"><div class="case-stat-num">Owned</div><div class="case-stat-label">Code, data, IP</div></div></div></div>
+
+  <div class="case-card reveal">
+    <div class="case-info">
+      <div class="blog-meta">
+        <span class="blog-tag">Internal tool</span>
+        <span class="blog-date">Financial services, 60 employees</span>
+      </div>
+      <h3>The payment team was copying account details by hand for every transaction. They now run an internal tool that fills the bank portal automatically.</h3>
+      <p><strong style="color:var(--text)">The old process.</strong> The payments team was manually reading beneficiary account numbers, sort codes, and payment references from their internal system and retyping them into the bank portal one by one. With 80 to 120 payments processed daily, the team was losing four hours every day to data entry. Errors were common. One payment reached an incorrect account. The team had flagged the problem for over a year but had no way to fix it without engineering resource they did not have.</p>
+      <p><strong style="color:var(--text)">The internal tool.</strong> The company now runs a lightweight browser tool that sits alongside their existing payment system. When a payment is queued, the tool reads the beneficiary details directly from the internal software and autofills the bank portal in under three seconds. The team reviews the pre-filled details, confirms, and submits. Nothing about their core system changed. The tool wraps around what already exists.</p>
+      <p><strong style="color:var(--text)">The outcome.</strong> Payment processing time dropped from an average of four minutes per transaction to under thirty seconds. The team recovered three and a half hours per day. In the six months since deployment, error rate has been zero. The tool now handles over 2,000 payments per month and has become a non-negotiable part of how the team operates.</p>
+    </div>
+    <div class="case-stats">
+      <div class="case-stat">
+        <div class="case-stat-num">87%</div>
+        <div class="case-stat-label">Faster per payment</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-num">3.5 hrs</div>
+        <div class="case-stat-label">Recovered daily</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-num">Zero</div>
+        <div class="case-stat-label">Errors in 6 months</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-card reveal reveal-d1">
+    <div class="case-info">
+      <div class="blog-meta">
+        <span class="blog-tag">Internal tool</span>
+        <span class="blog-date">Professional services, 35 employees</span>
+      </div>
+      <h3>The finance lead was spending half a day every month producing a manual summary of company spend. They now upload a statement and get a full AI analysis in two minutes.</h3>
+      <p><strong style="color:var(--text)">The old process.</strong> Every month the finance lead would download the company bank statement, copy transactions into a spreadsheet, manually categorise the spend, and produce a summary for the partners. The process took the better part of a working day. The output showed totals but no patterns, flagged nothing unusual, and gave no recommendations. Subscriptions renewed unnoticed. Supplier costs drifted upward. A duplicate invoice sat unspotted for two months.</p>
+      <p><strong style="color:var(--text)">The internal tool.</strong> The company now runs an internal AI tool that accepts a bank statement upload and returns a full analysis within two minutes. It categorises every transaction, flags anomalies, identifies recurring charges, surfaces duplicate vendors, and produces a prioritised list of recommendations. The finance lead uploads on the first of each month and has a complete briefing ready before the morning meeting.</p>
+      <p><strong style="color:var(--text)">The outcome.</strong> In the first month the tool identified £4,200 in charges the team had not actively reviewed, including three overlapping software subscriptions and a supplier invoice processed twice. The monthly finance review went from a half day of manual work to a fifteen minute read-through. The partners now receive a sharper, more actionable summary than they ever had before.</p>
+    </div>
+    <div class="case-stats">
+      <div class="case-stat">
+        <div class="case-stat-num">£4,200</div>
+        <div class="case-stat-label">Found in month one</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-num">3.5 hrs</div>
+        <div class="case-stat-label">Saved every month</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-num">2 mins</div>
+        <div class="case-stat-label">Full analysis time</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-card reveal reveal-d2">
+    <div class="case-info">
+      <div class="blog-meta">
+        <span class="blog-tag">AI copilot</span>
+        <span class="blog-date">Investment firm, 12 employees</span>
+      </div>
+      <h3>Analysts were spending up to twenty minutes manually reviewing a chart before every trade. They now run a copilot that reads the live chart and returns a signal in seconds.</h3>
+      <p><strong style="color:var(--text)">The old process.</strong> Before every trade entry the team manually assessed price action, trend direction, key levels, and momentum indicators on each chart. It took fifteen to twenty minutes per instrument and introduced inconsistency across the team. Two analysts reviewing the same chart would sometimes reach opposite conclusions. On fast-moving trades the delay cost them entry quality. The team knew the process was a bottleneck but had no way to standardise it.</p>
+      <p><strong style="color:var(--text)">The internal copilot.</strong> The team now runs an AI copilot that scans the live chart on screen and returns a structured signal in under ten seconds: Long, Short, or No trade, with a concise rationale covering the key factors. The copilot does not replace analyst judgement. It gives every analyst the same consistent starting point before they make a final call. The team stays in control. The copilot removes the inconsistency.</p>
+      <p><strong style="color:var(--text)">The outcome.</strong> Average pre-trade review time dropped from eighteen minutes to under two minutes. The team reports more consistent entry quality across all four analysts and a measurable reduction in trades taken against the prevailing market structure. The copilot now processes over 300 chart reviews per week and has become a standard part of the team's pre-trade routine.</p>
+    </div>
+    <div class="case-stats">
+      <div class="case-stat">
+        <div class="case-stat-num">89%</div>
+        <div class="case-stat-label">Faster chart review</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-num">300+</div>
+        <div class="case-stat-label">Reviews per week</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-num">4</div>
+        <div class="case-stat-label">Analysts using it daily</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-card reveal">
+    <div class="case-info">
+      <div class="blog-meta">
+        <span class="blog-tag">Workflow automation</span>
+        <span class="blog-date">Proprietary trading, 8 employees</span>
+      </div>
+      <h3>A senior trader was spending a full day every week manually reviewing strategy performance and deciding what to run. That process is now fully automated.</h3>
+      <p><strong style="color:var(--text)">The old process.</strong> Every week a senior trader would manually pull performance data from multiple sources, review results across all active strategies, and make a judgement call about which to continue and which to pause. The process took most of a working day, was entirely dependent on one person, and produced inconsistent outcomes depending on that person's bandwidth and attention that week. There was no systematic framework. Decisions were made by feel.</p>
+      <p><strong style="color:var(--text)">The internal system.</strong> The company now runs an autonomous governance system that manages the full weekly cycle without manual input. It pulls performance data across all active strategies, runs comparative analysis, conducts automated research to identify optimisation opportunities, and applies a promotion and demotion framework. Winning strategies receive increased allocation automatically. Underperforming strategies are paused or deprioritised. A summary report lands every Monday morning.</p>
+      <p><strong style="color:var(--text)">The outcome.</strong> The weekly governance process went from a full day of manual work to zero human input. The senior trader now spends thirty minutes reading the Monday report instead of producing it. Strategy performance improved in the first quarter after deployment as the automated framework surfaces the highest performing setups faster and more consistently than manual review had ever managed.</p>
+    </div>
+    <div class="case-stats">
+      <div class="case-stat">
+        <div class="case-stat-num">100%</div>
+        <div class="case-stat-label">Automated</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-num">1 day</div>
+        <div class="case-stat-label">Saved every week</div>
+      </div>
+      <div class="case-stat">
+        <div class="case-stat-num">30 mins</div>
+        <div class="case-stat-label">Weekly review time now</div>
+      </div>
+    </div>
+  </div>
+
 </section>
-<div class="cta-section"><canvas id="casesCtaCanvas"></canvas><div class="cta-inner reveal"><h2>Does any of this sound <em>familiar?</em></h2><p>Most engagements start with a vague suspicion that the stack has gotten out of hand. The diagnostic confirms it. The sprint fixes it.</p><a class="btn-primary" href="/contact">Book an audit →</a></div></div>
+
+<div class="cta-section">
+  <canvas id="casesCtaCanvas"></canvas>
+  <div class="cta-inner reveal">
+    <h2>Got a process that needs <em>rewiring?</em></h2>
+    <p>Start with a 30-minute call. We will map the problem, tell you what we would build, and give you a straight answer on whether it is worth going further.</p>
+    <a class="btn-primary" href="/contact">Book an audit</a>
+  </div>
+</div>
+
 </main>
 <footer>
   <canvas id="footerCanvas"></canvas>
