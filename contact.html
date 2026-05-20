@@ -12,7 +12,7 @@
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
 <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io; frame-ancestors 'none';">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://app.cal.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src https://formspree.io https://app.cal.com; frame-src https://app.cal.com; frame-ancestors 'none';">
 <title>Book an Audit | Talk to Rewire About Your Software Stack</title>
 <meta name="description" content="Tell us about your company and we will schedule a 30-minute call within 24 hours. No commitment, no slides, no sales pitch.">
 <link rel="canonical" href="https://opsrewire.com/contact">
@@ -167,7 +167,7 @@ nav.scrolled { background: rgba(15,15,22,0.96); }
 
 
 /* ── PAGE SYSTEM ── */
-/* Multi-page mode — no show/hide needed */
+/* Multi-page mode - no show/hide needed */
 
 /* ── COMMON SECTION ELEMENTS ── */
 .section-label {
@@ -533,7 +533,7 @@ footer canvas {
   font-family: var(--sans); font-size: 1rem; font-weight: 600;
 }
 
-/* ── TABLET (iPad — up to 1024px) ── */
+/* ── TABLET (iPad - up to 1024px) ── */
 @media (max-width: 1024px) {
   nav { padding: 0 1.5rem; }
   .nav-links { display: none; }
@@ -2027,6 +2027,44 @@ footer canvas {
   backdrop-filter: blur(8px);
 }
 
+.contact-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.calendar-card {
+  border: 1px solid rgba(78,168,230,0.18);
+  border-radius: 24px;
+  padding: 1.5rem;
+  background: linear-gradient(145deg, rgba(78,168,230,0.08), rgba(33,33,37,0.72));
+  box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+}
+
+.calendar-card h3 {
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+}
+
+.calendar-card p {
+  color: var(--text2);
+  font-size: 0.92rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.cal-inline-embed {
+  width: 100%;
+  min-height: 640px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  background: #fff;
+}
+
 .form-group {
   margin-bottom: 1.25rem;
   min-width: 0;
@@ -2423,7 +2461,7 @@ footer canvas {
 }
 
 /* ── RESPONSIVE ── */
-/* ── TABLET (iPad — up to 1024px) ── */
+/* ── TABLET (iPad - up to 1024px) ── */
 @media (max-width: 1024px) {
   .headline-stage { height: 220px; }
   .sub-stage { height: 120px; }
@@ -2527,6 +2565,8 @@ footer canvas {
   .contact-section { padding: 3rem 1.25rem; }
   .form-row { grid-template-columns: 1fr; }
   .contact-form { padding: 1.5rem; }
+  .calendar-card { padding: 1rem; }
+  .cal-inline-embed { min-height: 760px; }
 
   /* Blog */
   .blog-grid { grid-template-columns: 1fr; }
@@ -2560,7 +2600,7 @@ footer canvas {
   /* Ticker */
   .ticker-item { font-size: 0.75rem; padding: 0.3rem 1.25rem; }
 
-  /* Dot grid on mobile — hide to save perf */
+  /* Dot grid on mobile - hide to save perf */
   .dot-grid-section { height: 80px; }
 
   /* Footer */
@@ -2629,7 +2669,8 @@ footer canvas {
       </div>
     </div>
 
-    <form class="contact-form reveal reveal-d1" id="contactForm">
+    <div class="contact-actions reveal reveal-d1">
+    <form class="contact-form" id="contactForm">
       <div class="form-row">
         <div class="form-group">
           <label for="firstName">First name</label>
@@ -2692,6 +2733,13 @@ footer canvas {
       </div>
     </form>
 
+    <section class="calendar-card" aria-labelledby="calendarTitle">
+      <h3 id="calendarTitle">Pick a time that works.</h3>
+      <p>After you send the form, choose a 30-minute slot below and we will connect the details.</p>
+      <div id="my-cal-inline-30min" class="cal-inline-embed"></div>
+    </section>
+    </div>
+
     <script>
     (function() {
       var form = document.getElementById("contactForm");
@@ -2727,6 +2775,56 @@ footer canvas {
         });
       });
     })();
+    </script>
+    <script>
+    (function(C, A, L) {
+      var p = function(a, ar) { a.q.push(ar); };
+      var d = C.document;
+      C.Cal = C.Cal || function() {
+        var cal = C.Cal;
+        var ar = arguments;
+        if (!cal.loaded) {
+          cal.ns = {};
+          cal.q = cal.q || [];
+          d.head.appendChild(d.createElement("script")).src = A;
+          cal.loaded = true;
+        }
+        if (ar[0] === L) {
+          var api = function() { p(api, arguments); };
+          var namespace = ar[1];
+          api.q = api.q || [];
+          if (typeof namespace === "string") {
+            cal.ns[namespace] = cal.ns[namespace] || api;
+            p(cal.ns[namespace], ar);
+            p(cal, ["initNamespace", namespace]);
+          } else {
+            p(cal, ar);
+          }
+          return;
+        }
+        p(cal, ar);
+      };
+    })(window, "https://app.cal.com/embed/embed.js", "init");
+
+    Cal("init", "30min", { origin: "https://app.cal.com" });
+
+    Cal.ns["30min"]("inline", {
+      elementOrSelector: "#my-cal-inline-30min",
+      calLink: "femi-adeniji-eqkisw/30min",
+      config: {
+        layout: "month_view",
+        useSlotsViewOnSmallScreen: true
+      }
+    });
+
+    Cal.ns["30min"]("ui", {
+      hideEventTypeDetails: false,
+      layout: "month_view",
+      cssVarsPerTheme: {
+        light: { "cal-brand": "#4ea8e6" },
+        dark: { "cal-brand": "#4ea8e6" }
+      }
+    });
     </script>
   </div>
 </section>
@@ -2771,7 +2869,7 @@ footer canvas {
 
 <script>
 // ═══════════════════════════════════
-// REWIRE — Multi-page JS (SEO build)
+// REWIRE - Multi-page JS (SEO build)
 // ═══════════════════════════════════
 
 // ── MOBILE MENU ──
