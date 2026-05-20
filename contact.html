@@ -2033,7 +2033,8 @@ footer canvas {
   gap: 1.5rem;
 }
 
-.calendar-card {
+.calendar-card,
+.booking-complete-card {
   border: 1px solid rgba(78,168,230,0.18);
   border-radius: 24px;
   padding: 1.5rem;
@@ -2042,18 +2043,36 @@ footer canvas {
   backdrop-filter: blur(8px);
 }
 
-.calendar-card h3 {
+.calendar-card[hidden],
+.booking-complete-card[hidden] {
+  display: none;
+}
+
+.calendar-card h3,
+.booking-complete-card h3 {
   font-family: var(--serif);
   font-size: 1.35rem;
   font-weight: 400;
   margin-bottom: 0.5rem;
 }
 
-.calendar-card p {
+.calendar-card p,
+.booking-complete-card p {
   color: var(--text2);
   font-size: 0.92rem;
   line-height: 1.7;
   margin-bottom: 1.25rem;
+}
+
+.booking-complete-card {
+  min-height: 560px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.booking-complete-card p:last-child {
+  margin-bottom: 0;
 }
 
 .cal-inline-embed {
@@ -2733,16 +2752,23 @@ footer canvas {
       </div>
     </form>
 
-    <section class="calendar-card" aria-labelledby="calendarTitle">
+    <section class="calendar-card" id="calendarCard" aria-labelledby="calendarTitle" hidden>
       <h3 id="calendarTitle">Pick a time that works.</h3>
-      <p>After you send the form, choose a 30-minute slot below and we will connect the details.</p>
+      <p>Your details are in. Choose a 30-minute slot below and we will connect everything before the call.</p>
       <div id="my-cal-inline-30min" class="cal-inline-embed"></div>
+    </section>
+
+    <section class="booking-complete-card" id="bookingComplete" aria-labelledby="bookingCompleteTitle" hidden>
+      <h3 id="bookingCompleteTitle">You are booked in.</h3>
+      <p>Thanks. The calendar invite should be in your inbox shortly.</p>
+      <p>We will review your note before the call so the conversation starts with context, not admin.</p>
     </section>
     </div>
 
     <script>
     (function() {
       var form = document.getElementById("contactForm");
+      var calendarCard = document.getElementById("calendarCard");
       if (!form) return;
       form.addEventListener("submit", function(e) {
         e.preventDefault();
@@ -2761,8 +2787,11 @@ footer canvas {
         }).then(function(res) {
           if (res.ok) {
             form.reset();
-            success.style.display = "block";
-            btn.textContent = "Sent";
+            form.hidden = true;
+            if (calendarCard) {
+              calendarCard.hidden = false;
+              calendarCard.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
           } else {
             error.style.display = "block";
             btn.disabled = false;
@@ -2823,6 +2852,19 @@ footer canvas {
       cssVarsPerTheme: {
         light: { "cal-brand": "#4ea8e6" },
         dark: { "cal-brand": "#4ea8e6" }
+      }
+    });
+
+    Cal.ns["30min"]("on", {
+      action: "bookingSuccessful",
+      callback: function() {
+        var calendarCard = document.getElementById("calendarCard");
+        var bookingComplete = document.getElementById("bookingComplete");
+        if (calendarCard) calendarCard.hidden = true;
+        if (bookingComplete) {
+          bookingComplete.hidden = false;
+          bookingComplete.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
       }
     });
     </script>
